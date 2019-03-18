@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Assignment 2</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="dist/css/bootstrap-spinner.min.css">
+    <link rel="stylesheet" href="assets/css/old.css">
+    <link rel="stylesheet" href="assets/css/docs.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+ 
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="dist/js/jquery.spinner.min.js"></script>
+    <script src="dist/js/bootstrap-notify.js"></script>
+    
+
+
+    <script>
+      
+    $(function() {
+      $('#customize-spinner').spinner('changed', function(e, newVal, oldVal) {
+        $('#old-val').text(oldVal);
+        $('#new-val').text(newVal);
+      });
+
+      $('[data-trigger="spinner"]').spinner('changing', function(e, newVal, oldVal) {
+        var well = $(e.currentTarget).closest('.well');
+        $('small', well).text("Old = " + oldVal + ", New = " + newVal);
+      });
+
+      $('#step-spinner').spinner({
+        step: function(dir) {
+          if ((this.oldValue === 1 && dir === 'down') || (this.oldValue === -1 && dir === 'up')) {
+            return 2;
+          }
+          return 1;
+        }
+      });
+    });
+    </script>
+  </head>
+  <body>
+      <section class="container">
+    <div class="wrapper">   
+        <h1>jquery Plugin</h1>
+        A number-spinner based-on jQuery, supports keyboard operations and continuous changing
+        <div class="well" style="margin-top:20px;">
+          <h2>Input:<small class="pull-right"></small></h2>
+          <div class="input-group spinner" data-trigger="spinner">
+            <input type="text" class="form-control text-center" value="1" data-rule="quantity">
+            <div class="input-group-addon">
+              <a href="javascript:;" class="spin-up" data-spin="up"><i class="fas fa-caret-up"></i></a>
+              <a href="javascript:;" class="spin-down" data-spin="down"><i class="fas fa-caret-down"></i></a>
+            </div>
+          </div>
+        </div>
+
+        
+        
+          </div>
+          
+          <div class="bootstrap-info" style="margin-top:40px;">
+              <h1>Bootstrap Plugin</h1>
+              <p>It is a Bootstrap plugin for implementing growling like notifications. These are customisable deep down the roots from text to icons to images to colors etc. </p>
+              <p>See it on top  <i class="fas fa-hand-point-right animated infinite tada delay-2s" style="font-size: 15px;margin-left: 2px"></i></p>
+          </div>
+        
+ 
+      </section>
+
+      <script>
+          // $.notify("Click on Menu toggler to open the sidebar!!");
+          $.notify({
+              title: "<b>Welcome</b>",
+              message: "I am a Bootstrap Notifier!!",
+              icon: 'glyphicon glyphicon-star',
+              target: "_blank"
+              },{
+      
+              // where to append the notification
+              element: 'body',
+      
+              // static | fixed | relative | absolute
+              position: 'absolute',
+      
+              // notification type
+              type: "info",
+      
+              // is dismissable?
+              allow_dismiss: true,
+      
+              // allows duplicate notifications
+              allow_duplicates: true,
+      
+              // put the newest notification on the top
+              newest_on_top: false,
+      
+              // shows a progress bar
+              showProgressbar: false,
+      
+              // placement options
+              placement: {
+                  from: "top",
+                  align: "right"
+              },
+      
+              // offset in pixels
+              offset: 20,
+      
+              // space between notifications
+              spacing: 10,
+      
+              // z-index property
+              z_index: 1031,
+      
+              // delay in milliseconds
+              delay: 5000,
+      
+              // timer in millisconeds
+              timer: 2000,
+      
+              // URL target property
+              url_target: '_blank',
+      
+              // pause the timer on hover
+              mouse_over: null,
+      
+              // animation options
+              animate: {
+                  enter: 'animated fadeInDown',
+                  exit: 'animated fadeOutUp'
+              },
+      
+              // or 'image'
+              icon_type: 'class',
+      
+              // custom template
+              template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-{0}" style="background-color: white" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
+              
+              });
+      
+          </script>
+      
+
+  </body>
+</html>
